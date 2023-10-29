@@ -1,0 +1,13 @@
+C:\ESTUDOS\rust-janderson\game\target\debug\deps\emath-30ea3a4d2a8de4ca.rmeta: C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\lib.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\align.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\numeric.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\pos2.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\rect.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\rect_transform.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\rot2.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\smart_aim.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\vec2.rs
+
+C:\ESTUDOS\rust-janderson\game\target\debug\deps\emath-30ea3a4d2a8de4ca.d: C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\lib.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\align.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\numeric.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\pos2.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\rect.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\rect_transform.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\rot2.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\smart_aim.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\vec2.rs
+
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\lib.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\align.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\numeric.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\pos2.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\rect.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\rect_transform.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\rot2.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\smart_aim.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\emath-0.14.0\src\vec2.rs:

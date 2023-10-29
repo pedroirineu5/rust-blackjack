@@ -1,0 +1,11 @@
+C:\ESTUDOS\rust-janderson\game\target\debug\deps\widestring-a6907a9318ad5852.rmeta: C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\lib.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\platform\mod.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\platform\windows.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\ucstr.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\ucstring.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\ustr.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\ustring.rs
+
+C:\ESTUDOS\rust-janderson\game\target\debug\deps\widestring-a6907a9318ad5852.d: C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\lib.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\platform\mod.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\platform\windows.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\ucstr.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\ucstring.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\ustr.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\ustring.rs
+
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\lib.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\platform\mod.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\platform\windows.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\ucstr.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\ucstring.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\ustr.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\widestring-0.4.3\src\ustring.rs:

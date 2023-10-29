@@ -1,3 +1,6 @@
+use eframe::run_native;
+
+
 fn main() {
-    println!("Hello, world!");
+   print!("Vai tomar no cu RUST")
 }
