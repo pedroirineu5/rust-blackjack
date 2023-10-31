@@ -1,0 +1,11 @@
+C:\ESTUDOS\rust-janderson\game\target\debug\deps\arrayvec-7b5cb24988f41eb3.rmeta: C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\lib.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\arrayvec_impl.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\arrayvec.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\array_string.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\char.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\errors.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\utils.rs
+
+C:\ESTUDOS\rust-janderson\game\target\debug\deps\arrayvec-7b5cb24988f41eb3.d: C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\lib.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\arrayvec_impl.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\arrayvec.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\array_string.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\char.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\errors.rs C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\utils.rs
+
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\lib.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\arrayvec_impl.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\arrayvec.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\array_string.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\char.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\errors.rs:
+C:\Users\pedro\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arrayvec-0.7.4\src\utils.rs:
