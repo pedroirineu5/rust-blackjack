@@ -12,9 +12,9 @@ fn main() -> Result<(), PlatformError> {
 fn ui_builder() -> impl Widget<u32> {
     // The label text will be computed dynamically based on the current locale and count
     let text =
-        LocalizedString::new("FUNCIONA PELO AMOR DE DEUS").with_arg("count", |data: &u32, _env| (*data).into());
+        LocalizedString::new("hello-counter").with_arg("count", |data: &u32, _env| (*data).into());
     let label = Label::new(text).padding(5.0).center();
-    let button = Button::new("ADICIONAR MAIS PORRA AO")
+    let button = Button::new("increment")
         .on_click(|_ctx, data, _env| *data += 1)
         .padding(5.0);
 
