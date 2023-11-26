@@ -24,6 +24,4 @@ Uma implementação do jogo 21(BlackJack) usando Rust, para um projeto de estudo
 * ***strum*** = "0.24.1" -> usada para facilitar o uso das estruturas de enum e também para imprimir na tela o retorno de algumas funções utilizando das suas macros.
     * ***Strum_macros*** = "0.24.3" -> apenas um pacote de macros para auxiliar e dar o auto complete no código
 * ***dialoguer*** = "0.10.2" -> deixar o terminal mais iterativo e colorido
-* ***rusqlite*** = "0.25.0"-> conexão com o banco de dados usando um SQL bem simples
-
-
+* ***rusqlite*** = "0.25.0" -> facilitar o uso de um banco de dados

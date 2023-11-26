@@ -761,8 +761,6 @@ fn jogo_normal_3_maquinas(){
     print!("{winner} venceu o jogo!");
 }
 
-
-
 #[allow(dead_code)]
 fn jogo_2v2(){
     let mut user_cards = PlayerCardList(vec![]);
@@ -1011,8 +1009,6 @@ fn main()->  Result<(), rusqlite::Error> {
         println!("\n\nBEM VINDO AO BLACKJACK");
         println!("feito com 100% de RUST");
 
-        // TODO CRIAR TODOS OS PLAYERS(JOGADOR,MAQUINA1,MAQUINA2,MAQUINA3)
-
         
     
         let option = get_select_option_game_mode(); //pega o modo de jogo na funcao de selecao
@@ -1033,7 +1029,9 @@ fn main()->  Result<(), rusqlite::Error> {
              jogo_2v2(); //modo 2v2
         }
         else if option ==2{
-            //todo mostrar os jogadores com a maior quantidade de wins.
+            //TODO  um método para organizar o bd baseado no numero de wins dos players
+            let mut stmt = conn.prepare("SELECT id, wins FROM jogadores ORDER BY wins DESC")?;
+            
             break;
         }
     }
