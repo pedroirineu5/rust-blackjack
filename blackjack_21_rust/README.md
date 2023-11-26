@@ -20,9 +20,10 @@ Uma implementação do jogo 21(BlackJack) usando Rust, para um projeto de estudo
 
 ### Bibliotecas / dependências usadas:
 
-* ***rand*** = "0.8.5"
-* ***strum*** = "0.24.1"
-* ***strum_macros*** = "0.24.3"
-* ***dialoguer*** = "0.10.2" 
+* ***rand*** = "0.8.5" -> usado para geração de coisas aleatorias
+* ***strum*** = "0.24.1" -> usada para facilitar o uso das estruturas de enum e também para imprimir na tela o retorno de algumas funções utilizando das suas macros.
+    * ***Strum_macros*** = "0.24.3" -> apenas um pacote de macros para auxiliar e dar o auto complete no código
+* ***dialoguer*** = "0.10.2" -> deixar o terminal mais iterativo e colorido
+* ***rusqlite*** = "0.25.0"-> conexão com o banco de dados usando um SQL bem simples
 
 
