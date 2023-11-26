@@ -171,6 +171,24 @@ fn get_winner(player: i32, comparado2: i32) -> &'static str {
     }
 }
 
+fn get_winner_2v2(dupla1: i32, dupla2: i32) -> &'static str {
+    if dupla1 > 42 && dupla2 > 42{
+        return "Ninguém";
+    }
+    if dupla1 <= 42 {
+        if dupla2 > 42 {
+            return "DUPLA 1";
+        }
+        match dupla1.cmp(&dupla2) {
+            Ordering::Less => "DUPLA 2",
+            Ordering::Greater => "DUPLA 1",
+            Ordering::Equal => "DUPLA 2",
+        }
+    } else {
+        return "DUPLA 2";
+    }
+}
+
 fn get_winner_2_adicionais(player: i32, comparado2: i32, comparado3: i32) -> &'static str {
     if player > 21 && comparado2 > 21 && comparado3 > 21 {
         return "Ninguém";
@@ -703,12 +721,231 @@ fn jogo_normal_3_maquinas(){
 
 #[allow(dead_code)]
 fn jogo_2v2(){
-    print!("acabando")
+    let mut user_cards = PlayerCardList(vec![]);
+    let mut dealer_cards = PlayerCardList(vec![]);
+    let mut dealer2_cards = PlayerCardList(vec![]);
+    let mut dealer3_cards = PlayerCardList(vec![]);
+    // user_cards.0.push(Cards::ACE);
+    // user_cards.0.push(Cards::ACE);
+    user_cards.draw_card();
+    user_cards.draw_card();
+
+    dealer_cards.draw_card();
+    dealer_cards.draw_card();
+
+    dealer2_cards.draw_card();
+    dealer2_cards.draw_card();
+
+    dealer3_cards.draw_card();
+    dealer3_cards.draw_card();
+
+    // MAQUINA1
+    dealer_cards.print_first_card();
+    loop{
+        let mut rng = rand::thread_rng();
+        let number = rng.gen_range(1..=100);
+
+        if dealer_cards.get_sum() <= 11 {
+            dealer_cards.draw_card();
+            break;
+        } 
+        else if dealer_cards.get_sum() > 16 {
+            dealer_cards.draw_card();
+            break;
+        } 
+        else if dealer_cards.get_sum() == 12 {
+            if number > 31 {
+                dealer_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        } else if dealer_cards.get_sum() == 13 {
+            if number > 39 {
+                dealer_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        } else if dealer_cards.get_sum() == 14 {
+            if number > 56 {
+                dealer_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        } else if dealer_cards.get_sum() == 15 {
+            if number > 58 {
+                dealer_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        } else if dealer_cards.get_sum() == 16 {
+            if number > 62 {
+                dealer_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        }
+    }
+
+    //MUDAR A IA COM O CÓGIDO DE DUDU
+    // MAQUINA2
+    dealer2_cards.print_first_card();
+    loop{
+        let mut rng = rand::thread_rng();
+        let number = rng.gen_range(1..=100);
+
+        if dealer2_cards.get_sum() <= 11 {
+            dealer2_cards.draw_card();
+            break;
+        } 
+        else if dealer2_cards.get_sum() > 16 {
+            dealer2_cards.draw_card();
+            break;
+        } 
+        else if dealer2_cards.get_sum() == 12 {
+            if number > 31 {
+                dealer2_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        } else if dealer2_cards.get_sum() == 13 {
+            if number > 39 {
+                dealer2_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        } else if dealer2_cards.get_sum() == 14 {
+            if number > 56 {
+                dealer2_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        } else if dealer2_cards.get_sum() == 15 {
+            if number > 58 {
+                dealer2_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        } else if dealer2_cards.get_sum() == 16 {
+            if number > 62 {
+                dealer2_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        }
+    }
+
+    //IA DA MAQUINA 3
+    dealer3_cards.print_first_card();
+    loop{
+        let mut rng = rand::thread_rng();
+        let number = rng.gen_range(1..=100);
+
+        if dealer3_cards.get_sum() <= 11 {
+            dealer3_cards.draw_card();
+            break;
+        } 
+        else if dealer3_cards.get_sum() > 16 {
+            dealer3_cards.draw_card();
+            break;
+        } 
+        else if dealer3_cards.get_sum() == 12 {
+            if number > 31 {
+                dealer3_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        } else if dealer3_cards.get_sum() == 13 {
+            if number > 39 {
+                dealer3_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        } else if dealer3_cards.get_sum() == 14 {
+            if number > 56 {
+                dealer3_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        } else if dealer3_cards.get_sum() == 15 {
+            if number > 58 {
+                dealer3_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        } else if dealer3_cards.get_sum() == 16 {
+            if number > 62 {
+                dealer3_cards.draw_card();
+                break;
+            } else {
+                break;
+            }
+        }
+    }
+    // JOGADOR
+    loop {
+        dealer_cards.print_cards();
+        dealer2_cards.print_cards();
+        dealer3_cards.print_cards();
+        
+        user_cards.print_cards(Players::YOU);
+        let sum = user_cards.get_sum();
+        println!("Soma: {sum}\n");
+        if sum >= 21 {
+            break;
+        }
+        let opt = get_select_option_cards();
+        print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
+        if opt == 1 && sum < 17 {
+            println!("Você precisa de um score de 16 ou menos para pegar a carta.\nSeus pontos atuais são:{sum}");
+            continue;
+        } else if opt == 1 {
+            break;
+        }
+        next_move(opt, &mut user_cards);
+    }
+
+    //aqui no caso eu vou fazer 
+
+    dealer_cards.print_cards(Players::MAQUINA);
+    println!("SOMA MAQUINA 1-DUPLA2: {}\n", dealer_cards.get_sum());
+
+    dealer2_cards.print_cards(Players::MAQUINA);
+    println!("SOMA MAQUINA 2 - DUPLA1: {}\n", dealer2_cards.get_sum());
+    
+    dealer3_cards.print_cards(Players::MAQUINA);
+    println!("SOMA MAQUINA 3-DUPLA 2: {}\n", dealer3_cards.get_sum());
+
+    user_cards.print_cards(Players::YOU);
+    println!("SOMA JOGADOR-DUPLA1: {}\n", user_cards.get_sum());
+
+    println!("DUPLA 1 SOMA TOTAL:{:?}",user_cards.get_sum()+dealer2_cards.get_sum());
+    println!("DUPLA 2 SOMA TOTAL:{:?}",dealer_cards.get_sum()+dealer3_cards.get_sum());
+
+    let dupla1 = user_cards.get_sum()+dealer2_cards.get_sum();
+    let dupla2 = dealer_cards.get_sum()+dealer3_cards.get_sum();
+
+    let dupla_winner = get_winner_2v2(dupla1,dupla2);
+    
+    print!("{dupla_winner} venceu o jogo!");
 }
 
 
 fn main() {
-
+    // TODO  integrar com sqlite3
     let option = get_select_option_game_mode(); //pega o modo de jogo na funcao de selecao
     if option == 0{
         let machines = get_select_option_maquinas();
@@ -723,8 +960,8 @@ fn main() {
                 jogo_normal_3_maquinas(); //a terceira opção é 1v1v1v1
             }
         } 
-    //else if == 1{
-    //     jogo_2v2();//mexeram com
-    // }
+    else if option == 1{
+         jogo_2v2();
+    }
 
 }
