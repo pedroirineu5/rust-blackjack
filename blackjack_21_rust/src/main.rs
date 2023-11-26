@@ -1,10 +1,10 @@
 use dialoguer::{theme::ColorfulTheme, Select};
 use rand::Rng;
 use rand::seq::IteratorRandom;
-use std::cmp::Ordering;
 use std::fmt;
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+use rusqlite::{Connection, Result};
 
 fn get_select_option_cards() -> usize {
     let selections = &["Pegar Cartas", "Sair"];
@@ -20,7 +20,7 @@ fn get_select_option_cards() -> usize {
 }
 
 fn get_select_option_game_mode() -> usize {
-    let selections = &["Modo Solo", "Modo 2v2(42)"];
+    let selections = &["Modo Solo", "Modo 2v2(42)","Pontuação"];
 
     let selection = Select::with_theme(&ColorfulTheme::default())
         .with_prompt("ESCOLHA O MODO DE JOGO:")
@@ -153,66 +153,97 @@ impl PlayerCardList {
     }
 }
 
+fn adicionar_win(conn: &rusqlite::Connection, jogador_id: i32)->Result<(), rusqlite::Error>{
+    conn.execute(
+        "UPDATE jogadores SET wins = wins + 1 WHERE id = (?1)",[&jogador_id],
+    )?;
+
+    Ok(())
+}
+
 fn get_winner(player: i32, comparado2: i32) -> &'static str {
+    let conn = Connection::open_in_memory().unwrap();
     if player > 21 && comparado2 > 21{
         return "Ninguém";
     }
     if player <= 21 {
         if comparado2 > 21 {
+            adicionar_win(&conn,1).unwrap();
             return "VOCÊ";
         }
-        match player.cmp(&comparado2) {
-            Ordering::Less => "Máquina 1",
-            Ordering::Greater => "You",
-            Ordering::Equal => "Máquina 1",
+        if player > comparado2{
+            adicionar_win(&conn,1).unwrap();
+            return "VOCÊ"
+        }else{
+            adicionar_win(&conn,2).unwrap();
+            return "MAQUINA 1"
         }
     } else {
-        return "Máquina 1";
+        adicionar_win(&conn,2).unwrap();
+        return "MÁQUINA 1";
     }
 }
 
 fn get_winner_2v2(dupla1: i32, dupla2: i32) -> &'static str {
+    let conn = Connection::open_in_memory().unwrap();
     if dupla1 > 42 && dupla2 > 42{
         return "Ninguém";
     }
     if dupla1 <= 42 {
         if dupla2 > 42 {
+            adicionar_win(&conn,1).unwrap();
+            adicionar_win(&conn,3).unwrap();
             return "DUPLA 1";
-        }
-        match dupla1.cmp(&dupla2) {
-            Ordering::Less => "DUPLA 2",
-            Ordering::Greater => "DUPLA 1",
-            Ordering::Equal => "DUPLA 2",
+        }else if dupla1 > dupla2{
+            adicionar_win(&conn,1).unwrap();
+            adicionar_win(&conn,3).unwrap();
+            return "DUPLA 1";
+        }else{
+            adicionar_win(&conn,2).unwrap();
+            adicionar_win(&conn,4).unwrap();
+            return "DUPLA 2";
         }
     } else {
+        adicionar_win(&conn,2).unwrap();
+        adicionar_win(&conn,4).unwrap();
         return "DUPLA 2";
     }
 }
 
 fn get_winner_2_adicionais(player: i32, comparado2: i32, comparado3: i32) -> &'static str {
+    let conn = Connection::open_in_memory().unwrap();
+
     if player > 21 && comparado2 > 21 && comparado3 > 21 {
         return "Ninguém";
     } else if player <= 21 {
         if comparado2 > 21 && comparado3 > 21 {
+            adicionar_win(&conn,1).unwrap();
             return "VOCÊ";
         } else if comparado2 <= 21 && comparado3 <= 21 {
             if player > comparado2 && player > comparado3 {
+                adicionar_win(&conn,1).unwrap();
                 return "VOCÊ";
             } else if comparado2 > player && comparado2 > comparado3 {
+                adicionar_win(&conn,2).unwrap();
                 return "MAQUINA 1";
             } else if comparado3 > player && comparado3 > comparado2 {
+                adicionar_win(&conn,3).unwrap();
                 return "MAQUINA 2";
             }
         } else if comparado2 <= 21 {
             if player > 21 && comparado3 > 21 {
+                adicionar_win(&conn,2).unwrap();
                 return "MAQUINA 1";
             } else if comparado2 > player && comparado2 > comparado3 {
+                adicionar_win(&conn,2).unwrap();
                 return "MAQUINA 1";
             }
         } else if comparado3 <= 21 {
             if player > 21 && comparado2 > 21 {
+                adicionar_win(&conn,3).unwrap();
                 return "MAQUINA 2";
             } else if comparado3 > player && comparado3 > comparado2 {
+                adicionar_win(&conn,3).unwrap();
                 return "MAQUINA 2";
             }
         }
@@ -221,37 +252,50 @@ fn get_winner_2_adicionais(player: i32, comparado2: i32, comparado3: i32) -> &'s
 }
 
 fn get_winner_3_adicionais(player: i32, comparado2: i32, comparado3: i32, comparado4: i32) -> &'static str {
+    let conn = Connection::open_in_memory().unwrap();
+   
     if player > 21 && comparado2 > 21 && comparado3 > 21 && comparado4 > 21 {
         return "Ninguém";
     } else if player <= 21 {
         if comparado2 > 21 && comparado3 > 21 && comparado4 > 21 {
+            adicionar_win(&conn,1).unwrap();
             return "VOCÊ";
         } else if comparado2 <= 21 && comparado3 <= 21 && comparado4 <= 21 {
             if player > comparado2 && player > comparado3 && player > comparado4 {
+                adicionar_win(&conn,1).unwrap();
                 return "VOCÊ";
             } else if comparado2 > player && comparado2 > comparado3 && comparado2 > comparado4 {
+                adicionar_win(&conn,2).unwrap();
                 return "MAQUINA 1";
             } else if comparado3 > player && comparado3 > comparado2 && comparado3 > comparado4 {
+                adicionar_win(&conn,3).unwrap();
                 return "MAQUINA 2";
             } else if comparado4 > player && comparado4 > comparado2 && comparado4 > comparado3 {
+                adicionar_win(&conn,4).unwrap();
                 return "MAQUINA 3";
             }
         } else if comparado2 <= 21 {
             if player > 21 && comparado3 > 21 && comparado4 > 21 {
+                adicionar_win(&conn,2).unwrap();
                 return "MAQUINA 1";
             } else if comparado2 > player && comparado2 > comparado3 && comparado2 > comparado4 {
+                adicionar_win(&conn,2).unwrap();
                 return "MAQUINA 1";
             }
         } else if comparado3 <= 21 {
             if player > 21 && comparado2 > 21 && comparado4 > 21 {
+                adicionar_win(&conn,3).unwrap();
                 return "MAQUINA 2";
             } else if comparado3 > player && comparado3 > comparado2 && comparado3 > comparado4 {
+                adicionar_win(&conn,3).unwrap();
                 return "MAQUINA 2";
             }
         } else if comparado4 <= 21 {
             if player > 21 && comparado2 > 21 && comparado3 > 21 {
+                adicionar_win(&conn,4).unwrap();
                 return "MAQUINA 3";
             } else if comparado4 > player && comparado4 > comparado2 && comparado4 > comparado3 {
+                adicionar_win(&conn,4).unwrap();
                 return "MAQUINA 3";
             }
         }
@@ -897,9 +941,6 @@ fn jogo_2v2(){
     }
     // JOGADOR
     loop {
-        dealer_cards.print_cards();
-        dealer2_cards.print_cards();
-        dealer3_cards.print_cards();
         
         user_cards.print_cards(Players::YOU);
         let sum = user_cards.get_sum();
@@ -943,25 +984,60 @@ fn jogo_2v2(){
     print!("{dupla_winner} venceu o jogo!");
 }
 
+#[allow(dead_code)]
+fn main()->  Result<(), rusqlite::Error> {
 
-fn main() {
-    // TODO  integrar com sqlite3
-    let option = get_select_option_game_mode(); //pega o modo de jogo na funcao de selecao
-    if option == 0{
-        let machines = get_select_option_maquinas();
+    let conn = Connection::open("jogadores.db")?;
+    
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS jogadores (
+                  id INTEGER PRIMARY KEY,
+                  name TEXT NOT NULL,
+                  wins INTEGER NOT NULL)",
+        [],
+    )?;
 
-            if machines == 0{
-                jogo_normal();// a primeira opção ela é 1v1, as outras seria 1v1v1, e 1v1v1v1.
-            }
-            else if machines == 1{
-                jogo_normal_2_maquinas(); // a segunda opção é 1v1v1
-            }
-            else if machines == 2{
-                jogo_normal_3_maquinas(); //a terceira opção é 1v1v1v1
-            }
-        } 
-    else if option == 1{
-         jogo_2v2();
+    conn.execute(
+        "INSERT INTO jogadores (id, name, wins) VALUES
+        (1, 'Jogador', 0),
+        (2, 'MAQUINA 1', 0),
+        (3, 'MAQUINA 2', 0),
+        (4, 'MAQUINA 3', 0)",
+        [],
+        )?;
+
+    loop{
+        // TODO  integrar com sqlite3
+        println!("\n\nBEM VINDO AO BLACKJACK");
+        println!("feito com 100% de RUST");
+
+        // TODO CRIAR TODOS OS PLAYERS(JOGADOR,MAQUINA1,MAQUINA2,MAQUINA3)
+
+        
+    
+        let option = get_select_option_game_mode(); //pega o modo de jogo na funcao de selecao
+        if option == 0{
+            let machines = get_select_option_maquinas();
+    
+                if machines == 0{
+                    jogo_normal();// a primeira opção ela é 1v1, as outras seria 1v1v1, e 1v1v1v1.
+                }
+                else if machines == 1{
+                    jogo_normal_2_maquinas(); // a segunda opção é 1v1v1
+                }
+                else if machines == 2{
+                    jogo_normal_3_maquinas(); //a terceira opção é 1v1v1v1
+                }
+            } 
+        else if option == 1{
+             jogo_2v2(); //modo 2v2
+        }
+        else if option ==2{
+            //todo mostrar os jogadores com a maior quantidade de wins.
+            break;
+        }
     }
+    
+    Ok(())
 
 }
